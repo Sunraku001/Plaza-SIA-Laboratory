@@ -12,7 +12,11 @@ class StudentsController extends Controller
     }
 
     public function getStudents(){
+<<<<<<< HEAD
         $students = Student::with(['department', 'grades'])->get();
+=======
+        $students = Student::with(['department','grades'])->get();
+>>>>>>> ef9028e (second commit)
         return response()->json( $students);
     }
 }

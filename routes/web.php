@@ -19,4 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/students', [StudentsController::class, 'index']);
+<<<<<<< HEAD
 Route::get('/getStudents', [StudentsController::class, 'getStudents']);
+=======
+Route::get('/api/students', [StudentsController::class, 'getStudents']);
+>>>>>>> ef9028e (second commit)

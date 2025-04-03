@@ -17,6 +17,7 @@
                 <th>Midterm</th>
                 <th>Final</th>
                 <th>Cumulative Grade</th>
+<<<<<<< HEAD
             </tr>
         </thead>
         <tbody>
@@ -31,11 +32,28 @@
 
             fetchStudents();
             getInterval(10000);
+=======
+                <th>Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-7j3Q1z5+6e5c"></script>
+      <script>
+        $(document).ready(function() {
+
+            fetchStudents();
+>>>>>>> ef9028e (second commit)
 
             function fetchStudents(){
                 $.ajax({
                     url: "/api/students",
                     type: "GET",
+<<<<<<< HEAD
                     dataType: "JSON",
                     success: function(response){
                         let rows = '';
@@ -43,10 +61,21 @@
                             let  midterm = student.grades ? student.grades.midterm : 'N/A';
                             let final = student.grades ? student.grades.final : 'N/A';
                             let cumulative = (student.grades ? (parseFloat(midterm) + parseFloat(final)) / 2 : 'N/A');
+=======
+                    datatype: "json",
+                    success:function(response) {
+                        let rows = '';
+                        response.forEach(student => {
+                            let midterm = student.grades ? student.grades.midterm : 'N/A';
+                            let final = student.grades ? student.grades.final : 'N/A';
+                            let cumutative = (student.grades ? ( parseFloat(midterm) + parseFloat(final) ) / 2 : 'N/A');
+                            let remarks = (cumutative >3.0) ? "Failed" : "Pass";
+>>>>>>> ef9028e (second commit)
 
                             rows += `
                             <tr>
                                 <td>${student.id_number}</td>
+<<<<<<< HEAD
                                 <td>${student.firstname} ${student.middlename} ${student.lastname}</td>
                                 <td>${student.department.name}</td>
                                 <td>${midterm}</td>
@@ -66,3 +95,28 @@
       </script>
 </body>
 </html>
+=======
+                                <td>${student.firstname} ${student.middlename} ${student.lastname }</td>
+                                <td>${student.department.name}</td>
+                                <td>${midterm}</td>
+                                <td>${final}</td>
+                                <td>${cumutative}</td>
+                                <td>${remarks}</td>
+                            </tr>
+                            `;
+
+                        });
+                        $('#studentsTable tbody').html(rows);
+
+                    },
+                    error:function(){
+                        alert('Error fetching data');
+                    }
+                });
+            }
+            setInterval(fetchStudents,5000);
+        });
+      </script>
+</body>
+</html>
+>>>>>>> ef9028e (second commit)

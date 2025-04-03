@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\StudentsController;
+>>>>>>> ef9028e (second commit)
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+<<<<<<< HEAD
 Route::middleware('auth:sanctum')->get('/index', function (Request $request) {
     return $request->user();
 });
@@ -24,3 +29,17 @@ Route::get('/students', [StudentsController::class, 'getStudents']);
 
 
 
+=======
+
+Route::middleware('auth:sanctum')->get('/index', function (Request $request) {
+    return $request->user();
+});
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::get('/students', [StudentsController::class, 'index']);
+Route::get('/students', [StudentsController::class, 'getStudents']);
+
+>>>>>>> ef9028e (second commit)

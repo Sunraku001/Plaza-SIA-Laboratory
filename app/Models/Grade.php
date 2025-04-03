@@ -9,7 +9,11 @@ class Grade extends Model
 {
     use HasFactory;
 
+<<<<<<< HEAD
     public function students() {
+=======
+    public function student() {
+>>>>>>> ef9028e (second commit)
         return $this->belongsTo(Student::class);
     }
 }
